@@ -6,3 +6,5 @@ dist/
 */*/version.py
 *.so
 *.dylib
+*.cache/
+*.swp
