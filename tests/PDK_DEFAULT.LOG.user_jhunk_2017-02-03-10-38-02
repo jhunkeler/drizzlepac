@@ -1,0 +1,138 @@
+
+
+START
+test_run=user_jhunk_2017-02-03-10-38-02
+project=default
+host=gumb
+location=/Users/jhunk/Downloads/drizzlepac/tests/stis_01.py
+test_runner=nose
+context=default
+SETDEFAULT
+
+
+START
+test_run=user_jhunk_2017-02-03-10-38-02
+project=default
+host=gumb
+location=/Users/jhunk/Downloads/drizzlepac/tests/stis_01.py
+test_runner=nose
+context=default
+SETDEFAULT
+test_name=Users/jhunk/Downloads/drizzlepac/tests/tests.stis_01.stis_01
+status=E
+start_time=2017-02-03 10:38:04.228
+end_time=2017-02-03 10:38:12.353
+tra_Exception=TypeError('cmp() takes at least 2 arguments (0 given)',)
+log:
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02f4q_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02f6q_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02f8q_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02fbq_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02fcq_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02feq_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02fgq_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=orig/stis/stis_01/o60q02fiq_flt.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=stis/stis_01/reference.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=stis/stis_01/final_drz.fits... done
+.Retrieving http://ssb.stsci.edu/cgi-bin/remote_testing.cgi?tree=rt&project=betadrizzle&name=stis/stis_01/astrodrizzle.cfg... done
+.Validation warnings for: /Users/jhunk/Downloads/drizzlepac/tests/astrodrizzle.cfg
+.	"STEP 4: CREATE MEDIAN IMAGE.combine_bufsize" is missing.
+.	"STEP 7: DRIZZLE FINAL COMBINED IMAGE.final_maskval" is missing.
+.No valid input, quitting ...
+.
+.INPUT_DICT: {'input': 'o*flt.fits', 'runfile': 'stis_01_1visit'}
+.Setting up logfile :  stis_01_1visit.log
+.
+.AstroDrizzle Version 2.1.6(9-Aug-2016) started at: 10:38:12.339 (03/02/2017)
+.
+.==== Processing Step  Initialization  started at  10:38:12.340 (03/02/2017)
+.
+.==== Processing Step  Initialization  finished at  10:38:12.342 (03/02/2017)
+.
+.#################################################################
+.#                                                               #
+.# No valid images found for processing!                         #
+.# Check log file for full details.                              #
+.# Exiting AstroDrizzle now...                                   #
+.#                                                               #
+.#################################################################
+.
+.
+.   --------------------          --------------------
+.                   Step          Elapsed time
+.   --------------------          --------------------
+.
+.         Initialization          0.0026 sec.
+.
+.   ====================          ====================
+.
+.                  Total          0.0026 sec.
+.
+.Trailer file written to:  stis_01_1visit
+.
+.
+.================================================================================
+.stis_01_1visit.log:
+.================================================================================
+.[INFO    ] Setting up logfile :  stis_01_1visit.log
+.[INFO    ]
+.[INFO    ] AstroDrizzle Version 2.1.6(9-Aug-2016) started at: 10:38:12.339 (03/02/2017)
+.[INFO    ]
+.[INFO    ] Version Information
+.[INFO    ] --------------------
+.[INFO    ] Python Version 2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:43:17)
+.[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)]
+.[INFO    ] numpy Version -> 1.11.1
+.[INFO    ] astropy Version -> 1.2.1
+.[INFO    ] stwcs Version -> 1.2.3.dev
+.[INFO    ] ==== Processing Step  Initialization  started at  10:38:12.340 (03/02/2017)
+.[INFO    ]
+.[ERROR   ]
+.[ERROR   ] ******* ERROR *******
+.[ERROR   ]
+.[ERROR   ] No input file found!  Check specification of parameter "input".
+.[ERROR   ]
+.[ERROR   ] Quitting...
+.[ERROR   ]
+.[ERROR   ] ******* ***** *******
+.[ERROR   ]
+.[INFO    ] ==== Processing Step  Initialization  finished at  10:38:12.342 (03/02/2017)
+.[INFO    ]
+.[INFO    ] #################################################################
+.[INFO    ] #                                                               #
+.[INFO    ] # No valid images found for processing!                         #
+.[INFO    ] # Check log file for full details.                              #
+.[INFO    ] # Exiting AstroDrizzle now...                                   #
+.[INFO    ] #                                                               #
+.[INFO    ] #################################################################
+.[INFO    ]
+.[ERROR   ] ##############################################################################
+.[ERROR   ] #                                                                            #
+.[ERROR   ] # ERROR:                                                                     #
+.[ERROR   ] # AstroDrizzle Version 2.1.6 encountered a problem!  Processing terminated   #
+.[ERROR   ] # at 10:38:12.345 (03/02/2017).                                              #
+.[ERROR   ] #                                                                            #
+.[ERROR   ] ##############################################################################
+.[ERROR   ]
+.[INFO    ]
+.[INFO    ]    --------------------          --------------------
+.[INFO    ]                    Step          Elapsed time
+.[INFO    ]    --------------------          --------------------
+.[INFO    ]
+.[INFO    ]          Initialization          0.0026 sec.
+.[INFO    ]
+.[INFO    ]    ====================          ====================
+.[INFO    ]
+.[INFO    ]                   Total          0.0026 sec.
+.[INFO    ]
+.[INFO    ] Trailer file written to:  stis_01_1visit
+.[INFO    ]
+.  File "/home/jhunk/anaconda3/envs/drizzlepac/lib/python2.7/unittest/case.py", line 329, in run
+.    testMethod()
+.  File "/home/jhunk/anaconda3/envs/drizzlepac/lib/python2.7/site-packages/nose/case.py", line 197, in runTest
+.    self.test(*self.arg)
+.  File "/Users/jhunk/Downloads/drizzlepac/tests/stis_01.py", line 131, in stis_01
+.    filecmp.cmp()
+.TypeError('cmp() takes at least 2 arguments (0 given)',)
+
+END
