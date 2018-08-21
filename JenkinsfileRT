@@ -7,7 +7,7 @@ if (utils.scm_checkout()) return
 
 // Globals
 String CONDA_SHARED
-conda.CONDA_INSTALLER_VERSION = '4.5.4'
+conda.CONDA_INSTALLER_VERSION = '4.4.10'
 NODE_TYPE = "RHEL-6"
 PIP_INST = "pip install --upgrade --upgrade-strategy 'only-if-needed'"
 CONDA_CHANNEL = "http://ssb.stsci.edu/astroconda"
@@ -100,4 +100,4 @@ for (numpy_ver in matrix_numpy) {
 
 // Iterate over configurations that define the (distibuted) build matrix.
 // Spawn a host of the given nodetype for each combination and run in parallel.
-utils.run(matrix, concurrent=false)
+utils.run(matrix)
