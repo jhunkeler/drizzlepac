@@ -75,7 +75,7 @@ for (numpy_ver in matrix_numpy) {
     install.name = MATRIX_TITLE
     install.env_vars = ["HOME=./",
                         "PATH=./miniconda/bin:/bin:/usr/bin",
-                        "PYTHONPATH=''"
+                        "PYTHONPATH=/bogus/path/avoid/avoid",
                         "BUILD_MATRIX_SUFFIX=${MATRIX_SUFFIX}",
                         "BUILD_MATRIX_ID=${matrix_id}",]
     install.build_cmds = [
