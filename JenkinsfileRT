@@ -23,7 +23,6 @@ TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
     stage("Conda") {
-        deleteDir()
         conda.install()
         CONDA_SHARED = "${WORKSPACE}/miniconda"
         sh "curl -L https://raw.githubusercontent.com/astroconda/docker-buildsys/master/with_env >miniconda/bin/with_env"
@@ -81,6 +80,9 @@ for (numpy_ver in matrix_numpy) {
                         "BUILD_MATRIX_SUFFIX=${MATRIX_SUFFIX}",
                         "BUILD_MATRIX_ID=${matrix_id}",]
     install.build_cmds = [
+        // Dump environment
+        "printenv | sort",
+
         // Install python @ version
         "${CONDA_CREATE} -n ${python_ver} ${DEPS_PYTHON}",
 
