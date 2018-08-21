@@ -23,6 +23,7 @@ TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
     stage("Conda") {
+	deleteDir()
         conda.install()
         CONDA_SHARED = "${WORKSPACE}/miniconda"
         sh "curl -L https://raw.githubusercontent.com/astroconda/docker-buildsys/master/with_env >miniconda/bin/with_env"
