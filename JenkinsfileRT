@@ -46,9 +46,7 @@ data_config.match_prefix = '(.*)_result' // .json is appended automatically
 sdist = new BuildConfig()
 sdist.nodetype = NODE_TYPE
 sdist.name = "sdist"
-sdist.env_vars = ["PATH=./miniconda/bin:/bin:/usr/bin",
-                  "BUILD_MATRIX_SUFFIX=${MATRIX_SUFFIX}",
-                  "BUILD_MATRIX_ID=${matrix_id}",]
+sdist.env_vars = ["PATH=./miniconda/bin:/bin:/usr/bin"]
 sdist.build_cmds = ["${PIP_INST} ${BASE_DEPS}",
                     "${PY_SETUP} sdist"]
 matrix += sdist
