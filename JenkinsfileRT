@@ -24,13 +24,15 @@ node(NODE_TYPE) {
     stage("Conda") {
         deleteDir()
         conda.install()
+        sh "curl -L https://raw.githubusercontent.com/astroconda/docker-buildsys/master/with_env >miniconda/bin/with_env"
+        sh "chmod 755 miniconda/bin/with_env"
         sh "printenv | sort"
     }
 }
 
 matrix_python = ["3.6", "3.7"]
-matrix_astropy = [">=3.0.5"]
-matrix_numpy = [">=1.14", ">=1.15.0"]
+matrix_astropy = ["~=3.0"]
+matrix_numpy = ["==1.14.5", "==1.15.0"]
 matrix = []
 
 
@@ -71,7 +73,9 @@ for (numpy_ver in matrix_numpy) {
     install = new BuildConfig()
     install.nodetype = NODE_TYPE
     install.name = MATRIX_TITLE
-    install.env_vars = ["PATH=./miniconda/bin:/bin:/usr/bin",
+    install.env_vars = ["HOME=./",
+                        "PATH=./miniconda/bin:/bin:/usr/bin",
+                        "PYTHONPATH=''"
                         "BUILD_MATRIX_SUFFIX=${MATRIX_SUFFIX}",
                         "BUILD_MATRIX_ID=${matrix_id}",]
     install.build_cmds = [
