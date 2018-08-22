@@ -24,7 +24,6 @@ TEST_DEPS = "pytest crds"
 node(NODE_TYPE) {
     stage("Setup") {
         deleteDir()
-	sleep(4)
     }
 }
 
