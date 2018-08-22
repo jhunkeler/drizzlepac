@@ -6,8 +6,8 @@ if (utils.scm_checkout()) return
 // REGRESSION TEST VARIANT
 
 // Globals
-ASCO_INTERNAL = "/eng/ssb/auto/astroconda_helpers"
-CONDA_INSTALL_VERSION = "4.5.4"
+def ASCO_INTERNAL = "/eng/ssb/auto/astroconda_helpers"
+def CONDA_INSTALL_VERSION = "4.5.4"
 NODE_TYPE = "RHEL-6"
 PIP_INST = "pip install --upgrade --upgrade-strategy 'only-if-needed'"
 CONDA_CHANNEL = "http://ssb.stsci.edu/astroconda"
@@ -24,6 +24,7 @@ TEST_DEPS = "pytest crds"
 node(NODE_TYPE) {
     stage("Setup") {
         deleteDir()
+	sleep(4)
     }
 }
 
@@ -45,7 +46,7 @@ data_config.match_prefix = '(.*)_result' // .json is appended automatically
 sdist = new BuildConfig()
 sdist.nodetype = NODE_TYPE
 sdist.name = "sdist"
-sdist.env_vars = ["PATH=${ASCO_INTERNAL}:/bin:/usr/bin",
+sdist.env_vars = ["PATH=./miniconda/bin:${ASCO_INTERNAL}:/bin:/usr/bin",
                   "PYTHONPATH=/bogus/path/avoid/avoid",]
 sdist.build_cmds = ["conda_inject.sh ${CONDA_INSTALL_VERSION}",
                     "${PIP_INST} ${BASE_DEPS}",
