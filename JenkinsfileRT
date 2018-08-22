@@ -23,9 +23,7 @@ TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
     stage("Setup") {
-        withCredentials([string(credentialsId: 'ASCO_INTERNAL', variable: 'ASCO_INTERNAL')]){
-            // NOP
-        }
+        withCredentials([string(credentialsId: 'ASCO_INTERNAL', variable: 'ASCO_INTERNAL')]){}
         deleteDir()
     }
 }
