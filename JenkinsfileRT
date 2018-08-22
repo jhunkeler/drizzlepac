@@ -6,7 +6,7 @@ if (utils.scm_checkout()) return
 // REGRESSION TEST VARIANT
 
 // Globals
-def ASCO_INTERNAL
+ASCO_INTERNAL = "/eng/ssb/auto/astroconda_helpers"
 CONDA_INSTALL_VERSION = "4.5.4"
 NODE_TYPE = "RHEL-6"
 PIP_INST = "pip install --upgrade --upgrade-strategy 'only-if-needed'"
@@ -23,7 +23,6 @@ TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
     stage("Setup") {
-        withCredentials([string(credentialsId: 'ASCO_INTERNAL', variable: 'ASCO_INTERNAL')]){}
         deleteDir()
     }
 }
