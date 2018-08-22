@@ -7,7 +7,6 @@ if (utils.scm_checkout()) return
 
 // Globals
 def ASCO_INTERNAL
-
 CONDA_INSTALL_VERSION = "4.5.4"
 NODE_TYPE = "RHEL-6"
 PIP_INST = "pip install --upgrade --upgrade-strategy 'only-if-needed'"
@@ -24,8 +23,10 @@ TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
     stage("Setup") {
-        withCredentials([string(credentialsId: 'ASCO_INTERNAL', variable: 'ASCO_INTERNAL')]){}
         deleteDir()
+        withCredentials([string(credentialsId: 'ASCO_INTERNAL', variable: 'ASCO_INTERNAL')]){
+            // NOP
+        }
     }
 }
 
@@ -82,8 +83,8 @@ for (numpy_ver in matrix_numpy) {
         // Dump environment
         "printenv | sort",
 
-	// Install Conda
-	"conda_inject.sh ${CONDA_INSTALL_VERSION}",
+        // Install Conda
+        "conda_inject.sh ${CONDA_INSTALL_VERSION}",
 
         // Install python @ version
         "${CONDA_CREATE} -n ${python_ver} ${DEPS_PYTHON}",
