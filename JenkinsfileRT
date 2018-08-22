@@ -79,7 +79,7 @@ for (numpy_ver in matrix_numpy) {
                         "BUILD_MATRIX_ID=${matrix_id}",]
     install.build_cmds = [
         // Nasty workaround until utils can be modified
-        "git clean -ffxd"
+        "git clean -ffxd",
 
         // Dump environment
         "printenv | sort",
