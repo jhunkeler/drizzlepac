@@ -22,8 +22,9 @@ BASE_DEPS = "astropy numpy"
 TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
-    stage("Setup") {
+    stage("Purge") {
         deleteDir()
+        sleep(4)
     }
 }
 
