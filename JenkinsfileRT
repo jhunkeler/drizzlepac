@@ -60,7 +60,7 @@ for (python_ver in matrix_python) {
 for (astropy_ver in matrix_astropy) {
 for (numpy_ver in matrix_numpy) {
     MATRIX_SUFFIX = "${matrix_id}_py${python_ver}_np${numpy_ver}_ap${astropy_ver}"
-                    .replaceAll("[<>=\\!\\.]", "")
+                    .replaceAll("[~<>=\\!\\.]", "")
     MATRIX_TITLE = "mtx-${MATRIX_SUFFIX}"
     DEPS_PYTHON= "python=${python_ver} "
     DEPS_EX = ""
