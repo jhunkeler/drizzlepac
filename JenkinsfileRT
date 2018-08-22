@@ -78,7 +78,8 @@ for (numpy_ver in matrix_numpy) {
         // Dump environment
         "printenv | sort",
 
-	"conda_inject.sh ${CONDA_INSTALL_VERSION}"
+	// Install Conda
+	"conda_inject.sh ${CONDA_INSTALL_VERSION}",
 
         // Install python @ version
         "${CONDA_CREATE} -n ${python_ver} ${DEPS_PYTHON}",
