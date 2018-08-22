@@ -6,8 +6,7 @@ if (utils.scm_checkout()) return
 // REGRESSION TEST VARIANT
 
 // Globals
-String CONDA_SHARED
-conda.CONDA_INSTALLER_VERSION = '4.4.10'
+CONDA_INSTALL_VERSION = "4.5.4"
 NODE_TYPE = "RHEL-6"
 PIP_INST = "pip install --upgrade --upgrade-strategy 'only-if-needed'"
 CONDA_CHANNEL = "http://ssb.stsci.edu/astroconda"
@@ -22,13 +21,8 @@ BASE_DEPS = "astropy numpy"
 TEST_DEPS = "pytest crds"
 
 node(NODE_TYPE) {
-    stage("Conda") {
+    stage("Setup") {
 	deleteDir()
-        conda.install()
-        CONDA_SHARED = "${WORKSPACE}/miniconda"
-        sh "curl -L https://raw.githubusercontent.com/astroconda/docker-buildsys/master/with_env >miniconda/bin/with_env"
-        sh "chmod 755 miniconda/bin/with_env"
-        sh "printenv | sort"
     }
 }
 
@@ -76,13 +70,15 @@ for (numpy_ver in matrix_numpy) {
     install.nodetype = NODE_TYPE
     install.name = MATRIX_TITLE
     install.env_vars = ["HOME=./",
-                        "PATH=${CONDA_SHARED}/bin:/bin:/usr/bin",
+                        "PATH=./miniconda/bin:${ASCO_INTERNAL}:/bin:/usr/bin",
                         "PYTHONPATH=/bogus/path/avoid/avoid",
                         "BUILD_MATRIX_SUFFIX=${MATRIX_SUFFIX}",
                         "BUILD_MATRIX_ID=${matrix_id}",]
     install.build_cmds = [
         // Dump environment
         "printenv | sort",
+
+	"conda_inject.sh ${CONDA_INSTALL_VERSION}"
 
         // Install python @ version
         "${CONDA_CREATE} -n ${python_ver} ${DEPS_PYTHON}",
