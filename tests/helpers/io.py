@@ -22,7 +22,7 @@ __all__ = ['BigdataError', 'get_bigdata', 'upload_results']
 
 
 BIGDATA_PATHS = [
-    os.environ.get('TEST_BIGDATA', '/srv/rt/betadrizzle'),
+    os.environ.get('TEST_BIGDATA', ''),
     'https://bytesalad.stsci.edu/artifactory/drizzlepac'
 ]
 
