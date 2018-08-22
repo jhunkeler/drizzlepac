@@ -44,7 +44,8 @@ data_config.match_prefix = '(.*)_result' // .json is appended automatically
 sdist = new BuildConfig()
 sdist.nodetype = NODE_TYPE
 sdist.name = "sdist"
-sdist.env_vars = ["PATH=${CONDA_SHARED}/bin:/bin:/usr/bin"]
+sdist.env_vars = ["PATH=${ASCO_INTERNAL}:/bin:/usr/bin",
+                  "PYTHONPATH=/bogus/path/avoid/avoid",]
 sdist.build_cmds = ["${PIP_INST} ${BASE_DEPS}",
                     "${PY_SETUP} sdist"]
 matrix += sdist
