@@ -40,6 +40,8 @@ DrizzlePac (DEVELOPMENT)
 
 - Simplify logic for determining the chip ID for each source. [#200]
 
+- Improved the logging to write to STDOUT, as well as a file [#235]
+
 DrizzlePac v2.2.6 (02-Nov-2018)
 ===============================
 

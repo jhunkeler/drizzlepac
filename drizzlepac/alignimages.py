@@ -59,6 +59,10 @@ detector_specific_params = {"acs":
                                       "classify": True,
                                       "threshold": None}}} # fwhmpsf in units of arcsec
 
+log = logutil.create_logger('alignimages', level=logutil.logging.INFO, stream=sys.stdout)
+
+__version__ = 0.1
+__version_date__ = '15-Feb-2019'
 
 # ----------------------------------------------------------------------------------------------------------------------
 
