@@ -189,6 +189,7 @@ setup(
         'stsci.skypac',
         'stsci.stimage',
         'stwcs',
+        'tweakwcs>=0.4.0',
         'stregion',
         'requests',
     ],
