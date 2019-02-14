@@ -68,7 +68,6 @@ import time
 from astropy.io import fits
 from stsci.tools import fileutil, asnutil
 
-
 __taskname__ = "runastrodriz"
 
 # Local variables
@@ -288,10 +287,19 @@ def process(inFile,force=False,newpath=None, inmemory=False, num_cores=None,
         # call hlapipeline code here on align_files list of files
         #
         ###############
-        _trlmsg = _timestamp("Align to GAIA started\n")
-        _trlmsg += __trlmarker__
+        # Create trailer marker message for start of align_to_GAIA processing
+        _trlmsg = _timestamp("Align_to_GAIA started ")
+        print(_trlmsg)
+        ftmp = open(_tmptrl,'w')
+        ftmp.writelines(_trlmsg)
+        ftmp.close()
+        _appendTrlFile(_trlfile,_tmptrl)
+        _trlmsg = ""
+
+        # Create an empty astropy table so it can be used as input/output for the perform_align function
+        #align_table = Table()
         try:
-            align_table = alignimages.perform_align(align_files,update_hdr_wcs=True)
+            align_table = alignimages.perform_align(align_files,update_hdr_wcs=True, runfile=_alignlog)
             for row in align_table:
                 if row['status'] == 0:
                     trlstr = "Successfully aligned {} to {} astrometric frame\n"

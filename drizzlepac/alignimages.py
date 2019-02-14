@@ -129,10 +129,7 @@ def convert_string_tf_to_boolean(invalue):
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-
-
-def perform_align(input_list, archive=False, clobber=False, debug=True, update_hdr_wcs=False,
-                  print_fit_parameters=True, print_git_info=False, output=True): # TODO: set 'debug' and 'output' back to 'False' before release.
+def perform_align(input_list, **kwargs):
     """Main calling function.
 
     Parameters
@@ -170,6 +167,13 @@ def perform_align(input_list, archive=False, clobber=False, debug=True, update_h
     int value 0 if successful, int value 1 if unsuccessful
 
     """
+    filteredTable = Table()
+    run_align(input_list, result=filteredTable, **kwargs)
+    return filteredTable
+
+@util.with_logging
+def run_align(input_list, archive=False, clobber=False, debug=False, update_hdr_wcs=False, result=None, runfile=None,
+                  print_fit_parameters=True, print_git_info=False, output=False):
 
     # Define astrometric catalog list in priority order
     catalogList = ['GAIADR2', 'GAIADR1']
