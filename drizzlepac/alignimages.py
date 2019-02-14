@@ -165,7 +165,7 @@ def perform_align(input_list, archive=False, clobber=False, debug=True, update_h
         generate_source_catalogs() generate the .reg region files for every chip of every input image and should
         generate_astrometric_catalog() generate file 'refcatalog.cat'?
 
-    Returns
+    Updates
     -------
     int value 0 if successful, int value 1 if unsuccessful
 
@@ -364,6 +364,7 @@ def perform_align(input_list, archive=False, clobber=False, debug=True, update_h
                     filteredTable['status'][:] = 1
                     filteredTable['processMsg'][:] = "Fitting failure"
                     # It may be there are additional catalogs and algorithms to try, so keep going
+                    fitQual = 5 # Flag this fit with the 'bad' quality value
                     continue
 
                 if fitQual == 1:  # break out of inner fit algorithm loop
@@ -795,10 +796,12 @@ def generate_source_catalogs(imglist, **pars):
         # Allow user to decide when and how to write out catalogs to files
         if output:
             for chip in range(1,numSci+1):
-                regfilename = "{}_sci{}_src.reg".format(imgroot, chip)
-                out_table = Table(sourcecatalogdict[imgname]["catalog_table"][chip])
-                out_table.write(regfilename, include_names=["xcentroid", "ycentroid"], format="ascii.fast_commented_header")
-                print("Wrote region file {}\n".format(regfilename))
+                chip_cat = sourcecatalogdict[imgname]["catalog_table"][chip]
+                if chip_cat and len(chip_cat) > 0:
+                    regfilename = "{}_sci{}_src.reg".format(imgroot, chip)
+                    out_table = Table(chip_cat)
+                    out_table.write(regfilename, include_names=["xcentroid", "ycentroid"], format="ascii.fast_commented_header")
+                    log.info("Wrote region file {}\n".format(regfilename))
         imghdu.close()
     return(sourcecatalogdict)
 
