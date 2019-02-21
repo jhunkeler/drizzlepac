@@ -442,8 +442,8 @@ def run_align(input_list, archive=False, clobber=False, debug=False, update_hdr_
     print('Processing time of [STEP 6]: {} sec'.format(deltaDT))
     startingDT = currentDT
     # 7: Write new fit solution to input image headers
-    print("-------------------- STEP 7: Update image headers with new WCS information --------------------")
-    if best_fit_rms > 0 and update_hdr_wcs:
+    log.info("-------------------- STEP 7: Update image headers with new WCS information -----------------------------")
+    if (0 < best_fit_rms < 9999.) and update_hdr_wcs:
         headerlet_dict = update_image_wcs_info(imglist)
         for tableIndex in range(0,len(filteredTable)):
             filteredTable[tableIndex]['headerletFile'] = headerlet_dict[filteredTable[tableIndex]['imageName']]
