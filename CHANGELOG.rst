@@ -15,8 +15,8 @@ version in reverse chronological order (most recent version at the top
 of the list).
 
 
-DrizzlePac (DEVELOPMENT)
-========================
+3.0.2 (unreleased)
+==================
 
 - Updated code that relies on ``tweakwcs`` to use new API. [#234]
 
@@ -51,8 +51,9 @@ DrizzlePac (DEVELOPMENT)
 
 - Improved the logging to write to STDOUT, as well as a file [#235]
 
-DrizzlePac v2.2.6 (02-Nov-2018)
-===============================
+
+2.2.6 (02-Nov-2018)
+===================
 
 - Fix a bug that results in ``tweakreg`` crashing when no sources are found
   with user-specified source-finding parameters and when ``tweakreg`` then
@@ -66,20 +67,26 @@ DrizzlePac v2.2.6 (02-Nov-2018)
 - Fix incorrect units in CR-cleaned images created by ``astrodrizzle``. Now
   CR-cleaned images should have the same units as input images. [#190]
 
-DrizzlePac v2.2.5 (14-Aug-2018)
-===============================
+
+2.2.5 (14-Aug-2018)
+===================
+
 - Changed the color scheme of the ``hist2d`` plots to ``viridis``. [#167]
 
 - Refactored test suite
 
 - ``sdist`` now packages C extension source code
 
-DrizzlePac v2.2.4 (28-June-2018)
-================================
+
+2.2.4 (28-June-2018)
+====================
+
 - Replace ``pyregion`` with ``stregion``
 
-DrizzlePac v2.2.3 (13-June-2018)
-================================
+
+2.2.3 (13-June-2018)
+====================
+
 - Updated links in the documentation to point to latest
   ``drizzlepac`` website and online API documentation.
 
@@ -110,20 +117,25 @@ DrizzlePac v2.2.3 (13-June-2018)
   See `Issue #157 <https://github.com/spacetelescope/drizzlepac/issues/157>`_
   for more details.
 
-DrizzlePac v2.2.2 (18-April-2018)
-=================================
+
+2.2.2 (18-April-2018)
+=====================
+
 - Fixed a bug in ``TweakReg`` introduced in ``v2.2.0`` due to which, when
   ``TweakReg`` is run from the interpreter, the code may crash when trying to
   interpret input files.
 
-DrizzlePac v2.2.1 (12-April-2018)
-=================================
+
+2.2.1 (12-April-2018)
+=====================
+
 - Fixed problems with processing WFPC2 data provided by the archive.  User will
   need to make sure they run ``updatewcs`` on all input WFPC2 data before
   combining them with ``astrodrizzle``.
 
-Drizzlepac v2.2.0 (11-April-2018)
-=================================
+
+2.2.0 (11-April-2018)
+=====================
 
 - Implemented a major refactor of the project directory structure. Building no
   longer requires ``d2to1`` or ``stsci.distutils``. Drizzlepac's release
@@ -147,8 +159,9 @@ Drizzlepac v2.2.0 (11-April-2018)
   directory). See https://github.com/spacetelescope/drizzlepac/pull/115
   for more details.
 
-Drizzlepac v2.1.22 (15-March-2018)
-==================================
+
+2.1.22 (15-March-2018)
+======================
 
 - Changed the definition of Megabyte used to describe the size of the buffer
   for create median step (``combine_bufsize``). Previously a mixed
@@ -175,8 +188,9 @@ Drizzlepac v2.1.22 (15-March-2018)
 
 - Updated documentation.
 
-Drizzlepac v2.1.21 (12-January-2018)
-====================================
+
+2.1.21 (12-January-2018)
+========================
 
 - Restore recording of correct ``EXPTIME`` value in the headers of
   single drizzled ("single_sci") images. See
@@ -192,8 +206,9 @@ Drizzlepac v2.1.21 (12-January-2018)
   10 significant digits while shifts are printed with 4 digits after the
   decimal point.
 
-DrizzlePac v2.1.20 (07-October-2017)
-====================================
+
+2.1.20 (07-October-2017)
+========================
 
 - Fixed a bug in expanding reference catalog in ``TweakReg`` that would result
   in the code crashing.
@@ -207,15 +222,17 @@ DrizzlePac v2.1.20 (07-October-2017)
   the reference catalog.
   See https://github.com/spacetelescope/drizzlepac/pull/89 for more details.
 
-DrizzlePac v2.1.19 (29-September-2017)
-======================================
+
+2.1.19 (29-September-2017)
+==========================
 
 - Fixed a bug in computing optimal order of expanding reference catalog that
   resulted in code crashes.
   See https://github.com/spacetelescope/drizzlepac/pull/86 for more details.
 
-Drizzlepac v2.1.18 (05-September-2017)
-======================================
+
+2.1.18 (05-September-2017)
+==========================
 
 - Fixed ``astrodrizzle`` lowers the case of the path of output images issue.
   See https://github.com/spacetelescope/drizzlepac/issues/79 for more
@@ -227,22 +244,25 @@ Drizzlepac v2.1.18 (05-September-2017)
 - Corrected a message printed by tweakreg about used WCS for alignment. Also
   improved documentation for the ``refimage`` parameter.
 
-DrizzlePac v2.1.17 (13-June-2017)
-=================================
+
+2.1.17 (13-June-2017)
+=====================
 
 - ``drizzlepac.adrizzle`` updated to work with numpy >=1.12 when they implemented
   more strict array conversion rules for math. Any input which still has INT
   format will be converted to a float before any operations are performed, explicitly
   implementing what was an automatic operation prior to numpy 1.12.
 
-DrizzlePac v2.1.16 (05-June-2017)
-=================================
+
+2.1.16 (05-June-2017)
+=====================
 
 - Fixed a bug introduced in release v2.1.15 in the logic for merging WCS due to
   which custom WCS scale was being ignored.
 
-DrizzlePac v2.1.15 (26-May-2017)
-================================
+
+2.1.15 (26-May-2017)
+====================
 
 - ``fits.io`` operations will no longer use memory mapping in order
   to reduce the number of file handles used when running either
@@ -256,8 +276,8 @@ DrizzlePac v2.1.15 (26-May-2017)
 - Added ``crpix1`` and ``crpix2`` parameters to custom WCS.
 
 
-DrizzlePac v2.1.14 (28-Apr-2017)
-================================
+2.1.14 (28-Apr-2017)
+====================
 
 - Supressed info messages related inconsistent WCS - see
   `issue #60 <https://github.com/spacetelescope/drizzlepac/pull/60>`_ and
@@ -265,16 +285,16 @@ DrizzlePac v2.1.14 (28-Apr-2017)
   for more details.
 
 
-DrizzlePac v2.1.13 (11-Apr-2017)
-================================
+2.1.13 (11-Apr-2017)
+====================
 
 - Fixed a bug due to which sky background was subtracted by ``astrodrizzle``
   from the images even though ``skysub`` was set to `False` when
   ``MDRIZSKY`` was already present in input images' headers.
 
 
-DrizzlePac v2.1.12 (04-Apr-2017)
-================================
+2.1.12 (04-Apr-2017)
+====================
 
 - ``astrodrizzle`` now will run ``updatewcs()`` on newly created images
   when necessary, e.g., after converting WAVERED FITS to MEF format
@@ -289,27 +309,27 @@ DrizzlePac v2.1.12 (04-Apr-2017)
   `issue #51 <https://github.com/spacetelescope/drizzlepac/issues/51>`_).
 
 
-DrizzlePac v2.1.11 (24-Mar-2017)
-================================
+2.1.11 (24-Mar-2017)
+====================
 
 Bug fix release (a bug was introduced in v2.1.10).
 
 
-DrizzlePac v2.1.10 (23-Mar-2017)
-================================
+2.1.10 (23-Mar-2017)
+====================
 
 Some of the changes introduced in release v2.1.9 were not backward compatible.
 This release makes those changes backward compatible.
 
 
-DrizzlePac v2.1.9 (22-Mar-2017)
-===============================
+2.1.9 (22-Mar-2017)
+===================
 
 Compatibility improvements with Python 3 and other STScI software packages.
 
 
-DrizzlePac v2.1.8 (08-Feb-2017)
-===============================
+2.1.8 (08-Feb-2017)
+===================
 
 - Drizzlepac code will no longer attempt to delete "original" (WCS key 'O')
   resulting in a decreased number of warnings
@@ -338,20 +358,20 @@ DrizzlePac v2.1.8 (08-Feb-2017)
   when ``combine_type`` parameter is set to ``'minmed'``.
 
 
-DrizzlePac v2.1.6 and 2.1.7rc (15-Aug-2016)
-===========================================
+2.1.6 and 2.1.7rc (15-Aug-2016)
+===============================
 
 Package maintenance release.
 
 
-DrizzlePac v2.1.5 (09-Aug-2016)
-===============================
+2.1.5 (09-Aug-2016)
+===================
 
 Technical re-release of ``v2.1.4``.
 
 
-DrizzlePac v2.1.4 (01-Jul-2016)
-===============================
+2.1.4 (01-Jul-2016)
+===================
 
 The following bug fixes have been implemented:
 
@@ -362,8 +382,8 @@ The following bug fixes have been implemented:
   would not add '-SIP' suffix to CTYPE
 
 
-DrizzlePac v2.1.3 (16-Mar-2016)
-===============================
+2.1.3 (16-Mar-2016)
+===================
 
 - Improved ASN input file handling.
 
@@ -381,8 +401,8 @@ DrizzlePac v2.1.3 (16-Mar-2016)
 
 
 
-DrizzlePac v2.1.2 (12-Jan-2016)
-===============================
+2.1.2 (12-Jan-2016)
+===================
 
 - ``runastrodriz`` moved to ``drizzlepac`` from ``acstools`` and
   ``wfc3tools`` packages.
@@ -394,8 +414,8 @@ DrizzlePac v2.1.2 (12-Jan-2016)
 - Compatibility improvements with Python 3.
 
 
-DrizzlePac v2.1.1
-=================
+2.1.1
+=====
 
 **Available under SSBX/IRAFX starting:** Nov 17, 2015
 
@@ -413,8 +433,8 @@ This release includes the following bug fixes:
 - Compatibility improvements with Python 3.
 
 
-DrizzlePac(astrodrizzle) v2.1.0
-===============================
+2.1.0
+=====
 
 **Available under SSBX/IRAFX starting:** Nov 2, 2015
 
@@ -510,8 +530,8 @@ to keep the code viable as Python libraries used by ``DrizzlePac`` continue
 to develop and evolve with the language.
 
 
-DrizzlePac v2.0.0 Release Notes
-===============================
+2.0.0
+=====
 
 ** Available under SSBX/IRAFX starting:** Aug 4, 2014
 
@@ -586,8 +606,9 @@ This version of ``DrizzlePac`` also requires use of the latest release version
 of astropy primarily for WCS and FITS I/O support.
 
 
-DrizzlePac(astrodrizzle) v1.1.16
-================================
+1.1.16
+======
+
 **Publicly Released through PyPI:** Mar 27, 2014
 
 **Available under SSBX/IRAFX starting:** Mar 13, 2014
@@ -601,8 +622,9 @@ DrizzlePac(astrodrizzle) v1.1.16
   ``drizzlepac`` will reference the correct extensions in input images.
 
 
-DrizzlePac(astrodrizzle) v1.1.15(30-Dec-2013)
-=============================================
+1.1.15 (30-Dec-2013)
+====================
+
 **Publicly Released through PyPI:** Jan 14, 2014
 
 **Available under SSBX/IRAFX starting:** Jan 6, 2014
@@ -616,8 +638,9 @@ Bug fixes
   number of extensions in the FITS file upon completion.
 
 
-DrizzlePac(astrodrizzle) v1.1.14dev(21-Oct-2013)
-================================================
+1.1.14dev (21-Oct-2013)
+=======================
+
 **Installed in OPUS:** Dec 11, 2013
 
 **Available starting:** Oct 28, 2013
@@ -630,8 +653,9 @@ Bug fixes
   This restored the cosmic-ray masks detected during pipeline processing.
 
 
-DrizzlePac(astrodrizzle) v1.1.13dev(11-Oct-2013) in IRAFX
-=========================================================
+v1.1.13dev (11-Oct-2013)
+========================
+
 **available starting:** Oct 21, 2013
 
 - ``tweakreg`` can now be run in 'batch' mode. This allows the user to generate
@@ -639,8 +663,9 @@ DrizzlePac(astrodrizzle) v1.1.13dev(11-Oct-2013) in IRAFX
   and requiring any user input.
 
 
-DrizzlePac(astrodrizzle) v1.1.12dev(05-Sep-2013) in IRAFX
-=========================================================
+1.1.12dev (05-Sep-2013)
+=======================
+
 **available starting:** Sept 9, 2013
 
 This version fixed a couple of bugs in ``astrodrizzle``; namely,
@@ -663,15 +688,17 @@ Additionally, changes were made to ``STWCS`` for reprocessing use:
   package on WFPC2 data have been corrected in this revision.
 
 
-DrizzlePac(astrodrizzle) v1.1.11dev(05-Jul-2013) in IRAFX
-=========================================================
+1.1.11dev (05-Jul-2013)
+=======================
+
 **Available starting:** July 15, 2013
 
 - AstroDrizzle now can process all STIS data without crashing.
 
 
-DrizzlePac(astrodrizzle) v1.1.10dev(06-Feb-2013) in IRAFX
-=========================================================
+1.1.10dev (06-Feb-2013)
+=======================
+
 **available starting:** May 6, 2013
 
 - The output drizzle image header no longer contains references to D2IM arrays.
@@ -682,8 +709,9 @@ DrizzlePac(astrodrizzle) v1.1.10dev(06-Feb-2013) in IRAFX
   the entire package, making it compatible with PyFITS 3.2.x and later.
 
 
-DrizzlePac(astrodrizzle) v1.1.8dev(06-Feb-2013) in IRAFX
-========================================================
+1.1.8dev (06-Feb-2013)
+======================
+
 **available starting:** Feb 11, 2013
 
 - Fixed a bug in ``astrodrizzle`` which caused blot to raise an exception
@@ -702,8 +730,9 @@ DrizzlePac(astrodrizzle) v1.1.8dev(06-Feb-2013) in IRAFX
   the FLT headers with the default or user-defined value of ``WCSNAME``.
 
 
-DrizzlePac(astrodrizzle) v1.1.7dev(18-Dec-2012) in IRAFX
-========================================================
+1.1.7dev (18-Dec-2012)
+======================
+
 **available starting:** Feb 4, 2013
 
 - Updated astrodrizzle to work with input images which do not have ``WCSNAME``
@@ -717,8 +746,9 @@ DrizzlePac(astrodrizzle) v1.1.7dev(18-Dec-2012) in IRAFX
   column can be found in input source catalogs.
 
 
-DrizzlePac(astrodrizzle) v1.1.7dev(18-Dec-2012) in IRAFX
-========================================================
+1.1.7dev (18-Dec-2012)
+======================
+
 **available starting:** Dec 10, 2012
 
 - Update ``tweakreg`` 2d histogram building mode to correctly find the peak
@@ -739,8 +769,9 @@ DrizzlePac(astrodrizzle) v1.1.7dev(18-Dec-2012) in IRAFX
   all (if not all) duplicates in most cases.
 
 
-DrizzlePac(astrodrizzle) v1.1.7dev(8-Jan-2012) in IRAFX
-=======================================================
+1.1.7dev (8-Jan-2012)
+=====================
+
 **available starting:** Jan 14, 2013
 
 - Bug fixed in updatehdr module to allow shiftfiles without RMS columns to work
@@ -757,8 +788,9 @@ DrizzlePac(astrodrizzle) v1.1.7dev(8-Jan-2012) in IRAFX
   a C function that run about 4x faster.
 
 
-DrizzlePac(astrodrizzle) v1.1.6dev(5-Dec-2012) in IRAFX
-=======================================================
+1.1.6dev (5-Dec-2012)
+=====================
+
 **available starting:** Dec 10, 2012
 
 - ``tweakreg`` v1.1.0 source finding algorithm now runs many times faster
@@ -780,8 +812,9 @@ DrizzlePac(astrodrizzle) v1.1.6dev(5-Dec-2012) in IRAFX
   from getting improperly cast values from the configObj(TEAL) input.
 
 
-DrizzlePac(astrodrizzle) v1.1.5dev(23-Oct-2012) in IRAFX
-========================================================
+1.1.5dev (23-Oct-2012)
+======================
+
 **available starting:** Oct 29, 2012
 
 - Scaling of sky array for WFC3/IR IVM generation now correct.
@@ -797,16 +830,18 @@ DrizzlePac(astrodrizzle) v1.1.5dev(23-Oct-2012) in IRAFX
   parameter.
 
 
-DrizzlePac(astrodrizzle) v1.1.1(31-Aug-2012) in HST Archive
-===========================================================
+1.1.1 (31-Aug-2012)
+===================
+
 **available starting:** Sept 26, 2012
 
 The HST Archive and operational calibration pipeline started using this
 version on Sept 26, 2012.
 
 
-DrizzlePac(astrodrizzle) v1.1.4dev(20-Sep-2012) in IRAFX
-========================================================
+1.1.4dev (20-Sep-2012)
+======================
+
 **available starting:** Sept 24, 2012
 
 - Bug fixed to allow use of final_wht_type=IVM for processing WFPC2 data.
@@ -815,16 +850,18 @@ DrizzlePac(astrodrizzle) v1.1.4dev(20-Sep-2012) in IRAFX
   direct pyfits calls.
 
 
-DrizzlePac(astrodrizzle) v1.1.3(7-Sep-2012) in IRAFX
-====================================================
+1.1.3 (7-Sep-2012)
+==================
+
 **available starting:** Sept 17, 2012
 
 - Fixed the logic so that crclean images always get created regardless of the
   value of the 'clean' parameter.
 
 
-DrizzlePac(astrodrizzle) v1.1.2(5-Sep-2012) in IRAFX
-====================================================
+1.1.2 (5-Sep-2012)
+==================
+
 **available starting:** Sept 10, 2012
 
 - Remove the restriction of only being able to process images which have
@@ -837,8 +874,9 @@ DrizzlePac(astrodrizzle) v1.1.2(5-Sep-2012) in IRAFX
   drizzle and blot steps
 
 
-DrizzlePac(astrodrizzle) v1.1.1(30-Aug-2012) in IRAFX
-=====================================================
+1.1.1 (30-Aug-2012)
+===================
+
 **available starting:** Sept 3, 2012
 
 - Major revision to ``astrodrizzle`` allowing the option to process without
@@ -851,8 +889,10 @@ DrizzlePac(astrodrizzle) v1.1.1(30-Aug-2012) in IRAFX
 - revised to turn off 'updatewcs' when coeffs=False(no) so that exposures with
   filter combinations not found in the IDCTAB will not cause an error.
 
-DrizzlePac(astrodrizzle) v1.0.7(21-Aug-2012) in IRAFX
-=====================================================
+
+1.0.7 (21-Aug-2012)
+===================
+
 **available starting:** Aug 27, 2012
 
 - Fixes problems with missing single_sci images.
@@ -863,16 +903,18 @@ DrizzlePac(astrodrizzle) v1.0.7(21-Aug-2012) in IRAFX
   ``static_mask=yes``.
 
 
-DrizzlePac(astrodrizzle) v1.0.6(14-Aug-2012) in IRAFX
-=====================================================
+1.0.6 (14-Aug-2012)
+===================
+
 **available starting:** Aug 20, 2012
 
 Use of IVM for final_wht now correct, as previous code used wrong inputs when
 IVM weighting was automatically generated by ``astrodrizzle``.
 
 
-DrizzlePac(astrodrizzle) v1.0.5(8-Aug-2012) in IRAFX
-====================================================
+1.0.5 (8-Aug-2012)
+==================
+
 **available starting:** Aug 13, 2012
 
 - Completely removed the use of the TIME arrays for weighting IR drizzle
@@ -883,8 +925,9 @@ DrizzlePac(astrodrizzle) v1.0.5(8-Aug-2012) in IRAFX
   data where CRPIX2 was not found when creating the output single sci image.
 
 
-stsci_python v2.13 [Includes astrodrizzle v1.0.2(13-July-2012)]
-===============================================================
+1.0.2 (13-July-2012)
+====================
+
 **available starting:** Aug 3, 2012
 
 The complete version of stsci_python can be downloaded from our
@@ -895,15 +938,17 @@ The complete version of stsci_python can be downloaded from our
 - `Old stsci_python release notes <http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python/release-notes>`_
 
 
-DrizzlePac(astrodrizzle) v1.0.1(20-June-2012)
-=============================================
+1.0.1 (20-June-2012)
+====================
+
 **Used in archive/pipeline starting:** July 10, 2012
 
 Pipeline and archive started processing ACS data with this version.
 
 
-DrizzlePac(astrodrizzle) v1.0.0(25-May-2012)
-============================================
+1.0.0 (25-May-2012)
+===================
+
 **Used in archive/pipeline starting:** June 6, 2012
 
 Pipeline and archive first started using ``astrodrizzle`` by processing WFC3
