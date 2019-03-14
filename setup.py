@@ -30,8 +30,6 @@ if not pkgutil.find_loader('relic'):
 import relic.release
 
 PACKAGENAME = 'drizzlepac'
-
-
 version = relic.release.get_info()
 relic.release.write_template(version, PACKAGENAME)
 
@@ -54,6 +52,10 @@ if sys.platform == 'win32':
         ('__STDC__', 1)
     ]
 
+TESTS_REQUIRE = [
+    'crds',
+    'pytest'
+]
 
 setup(
     name=PACKAGENAME,
@@ -94,7 +96,9 @@ setup(
         'stregion',
         'requests',
     ],
-    tests_require=['crds', 'pytest'],
+    extras_require={
+        'test': TESTS_REQUIRE
+    },
     packages=find_packages(),
     package_data={
         '': ['README.md', 'LICENSE.txt'],
