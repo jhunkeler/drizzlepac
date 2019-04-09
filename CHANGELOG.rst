@@ -18,6 +18,9 @@ of the list).
 3.0.2 (unreleased)
 ==================
 
+- Fixed a bug in the automatic computation of the IVM weights when IVM
+  was not provided by the user. [#320]
+
 - Added test code to validate astrometric solutions from the database. [#294]
 
 - Fixed a bug in the 2D histogram code used for estimating shifts for
@@ -81,6 +84,8 @@ of the list).
 - Simplify logic for determining the chip ID for each source. [#200]
 
 - Improved the logging to write to STDOUT, as well as a file [#235]
+
+- Modified the check on the tweakwcs_output to be more robust[#260]
 
 
 2.2.6 (02-Nov-2018)
