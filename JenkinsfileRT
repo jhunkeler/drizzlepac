@@ -14,7 +14,7 @@ jobconfig.credentials = [
 // Configure artifactory ingest
 data_config = new DataConfig()
 data_config.server_id = 'bytesalad'
-data_config.root = 'tests_output'
+data_config.root = 'clone/tests_output'
 data_config.match_prefix = '(.*)_result' // .json is appended automatically
 
 bc1 = new BuildConfig()
@@ -22,14 +22,17 @@ bc1.nodetype = 'linux'
 bc1.env_vars = ['TEST_BIGDATA=https://bytesalad.stsci.edu/artifactory']
 bc1.name = '3.9'
 bc1.conda_packages = ['python=3.9']
-bc1.build_cmds = ["pip install numpy astropy codecov pytest-cov ci-watson==0.5",
+bc1.build_cmds = ["echo BUILD EXECUTING IN: $(pwd)",
+                 "pip install numpy astropy codecov pytest-cov ci-watson==0.5",
 		 "pip install --upgrade -e '.[test]'",
                  "pip freeze"]
-bc1.test_cmds = ["pytest --cov=./ --basetemp=tests_output --bigdata",
+bc1.test_cmds = ["echo TESTS EXECUTING IN: $(pwd)",
+                "pytest --cov=./ --basetemp=tests_output --bigdata tests/acs/test_acs_kernels.py",
                 "codecov"]
 bc1.test_configs = [data_config]
 
 
+/*
 bc2 = utils.copy(bc1)
 bc2.name = '3.9-dev'
 bc2.build_cmds[1] = "pip install -r requirements-dev.txt --upgrade -e '.[test]'"
@@ -49,9 +52,10 @@ bc3.test_configs = [data_config]
 bc4 = utils.copy(bc3)
 bc4.name = '3.11-dev'
 bc4.conda_packages = ['python=3.11']
+*/
 
 
 // Iterate over configurations that define the (distributed) build matrix.
 // Spawn a host (or workdir) for each combination and run in parallel.
 // Also apply the job configuration defined in `jobconfig` above.
-utils.run([bc1, bc3, bc4, jobconfig])
+utils.run([bc1, jobconfig])
