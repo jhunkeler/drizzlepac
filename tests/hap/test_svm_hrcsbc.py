@@ -50,8 +50,8 @@ def read_csv_for_filenames():
 @pytest.fixture(scope="module")
 def gather_data_for_processing(read_csv_for_filenames, tmp_path_factory):
     # create working directory specified for the test
-    curdir = tmp_path_factory.mktemp(os.path.basename(__file__))
-    os.chdir(curdir)
+    curdir = "."
+    os.chdir(".")
 
     # Establish FLC/FLT lists and obtain the requested data
     flc_flag = ""

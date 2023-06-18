@@ -109,10 +109,10 @@ def test_randomlist(tmpdir, dataset, request):
 
     # create working directory specified for the test
     if not tmpdir.ensure(subdir, dir=True):
-        curdir = tmpdir.mkdir(subdir).strpath
+        curdir = "."
     else:
-        curdir = tmpdir.join(subdir).strpath
-    os.chdir(curdir)
+        curdir = "."
+    os.chdir(".")
 
     try:
 
@@ -177,7 +177,7 @@ def test_randomlist(tmpdir, dataset, request):
                 os.remove(filename)
 
     # Return to original directory
-    os.chdir(prevdir)
+    os.chdir(".")
 
 
 def get_dataset_list(table_name):

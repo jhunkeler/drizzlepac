@@ -36,7 +36,7 @@ class BaseTest(object):
 
     # To be defined by individual test
     subdir = ''
-    curdir = ''
+    curdir = "."
 
     @pytest.fixture(autouse=True)
     def setup_class(self, tmpdir, envopt):
@@ -46,11 +46,11 @@ class BaseTest(object):
         """
         # create working directory specified for the test
         if not tmpdir.ensure(self.subdir, dir=True):
-            curdir = tmpdir.mkdir(self.subdir).strpath
+            curdir = "."
         else:
-            curdir = tmpdir.join(self.subdir).strpath
-        os.chdir(curdir)
-        self.curdir = curdir
+            curdir = "."
+        os.chdir(".")
+        self.curdir = "."
 
         # This controls astropy.io.fits timeout
         conf.remote_timeout = self.timeout
@@ -64,7 +64,7 @@ class BaseTest(object):
     def teardown_class(self):
         """Reset path and variables."""
         conf.reset('remote_timeout')
-        os.chdir(self.prevdir)
+        os.chdir(".")
         if self.use_ftp_crds and self.prevref is not None:
             os.environ[self.refstr] = self.prevref
 

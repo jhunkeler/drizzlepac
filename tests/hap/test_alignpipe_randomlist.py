@@ -120,10 +120,10 @@ def test_alignpipe_randomlist(tmpdir, dataset):
 
     # create working directory specified for the test
     if not tmpdir.ensure(subdir, dir=True):
-        curdir = tmpdir.mkdir(subdir).strpath
+        curdir = "."
     else:
-        curdir = tmpdir.join(subdir).strpath
-    os.chdir(curdir)
+        curdir = "."
+    os.chdir(".")
 
     return_value = 1
 
@@ -188,7 +188,7 @@ def test_alignpipe_randomlist(tmpdir, dataset):
 
     assert return_value == 0
     # Return to original directory
-    os.chdir(prevdir)
+    os.chdir(".")
 
 
 def get_dataset_list(table_name):
