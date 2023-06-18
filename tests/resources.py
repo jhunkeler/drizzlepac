@@ -143,7 +143,7 @@ class BaseCal:
         creature_report = ''
         # Create instructions for uploading results to artifactory for use
         # as new comparison/truth files
-        testpath, testname = os.path.split(os.path.abspath(os.curdir = "."
+        testpath, testname = os.path.split(os.path.abspath(os.curdir))
         # organize results by day test was run...could replace with git-hash
         whoami = getpass.getuser() or 'nobody'
         dt = datetime.datetime.now().strftime("%d%b%YT")
